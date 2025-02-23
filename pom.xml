@@ -58,9 +58,9 @@
                 <executions>
                     <execution>
                         <!-- Default configuration for running with: mvn clean javafx:run -->
-                        <id>default-cli</id>
+                        <taskID>default-cli</taskID>
                         <configuration>
-                            <mainClass>com.example.taskmanagement/com.example.taskmanagement.HelloApplication
+                            <mainClass>com.example.taskmanagement/com.example.taskmanagement.MainApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

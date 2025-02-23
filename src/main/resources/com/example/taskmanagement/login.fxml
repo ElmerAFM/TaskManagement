@@ -42,34 +42,43 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskmanagement.LoginController">
-  <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="439.0" prefWidth="717.0" VBox.vgrow="ALWAYS">
-      <children>
-            <ImageView fitHeight="481.0" fitWidth="640.0">
-               <image>
-                  <Image url="@gradient.jpg" />
-               </image>
-            </ImageView>
-            <AnchorPane layoutX="80.0" layoutY="51.0" prefHeight="380.0" prefWidth="480.0" style="-fx-background-color: WHITE;">
-               <children>
-                  <Label layoutX="204.0" layoutY="63.0" prefHeight="34.0" prefWidth="70.0" text="Login" textFill="#6f6f6f">
-                     <font>
-                        <Font name="Tahoma Bold" size="23.0" />
-                     </font>
-                  </Label>
-                  <AnchorPane layoutX="199.0" layoutY="98.0" prefHeight="3.0" prefWidth="82.0" style="-fx-background-color: #7cb342;" />
-                  <Button fx:id="loginButton" layoutX="157.0" layoutY="247.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="32.0" prefWidth="165.0" style="-fx-background-color: #7cb342; -fx-background-radius: 90;" text="Login" textFill="WHITE">
-                     <font>
-                        <Font name="Tahoma Bold" size="14.0" />
-                     </font>
-                  </Button>
-                  <TextField fx:id="usernameField" layoutX="159.0" layoutY="140.0" promptText="Email" />
-                  <PasswordField fx:id="passwordField" layoutX="158.0" layoutY="177.0" promptText="Password" />
-                  <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="61.0" layoutY="299.0" prefHeight="18.0" prefWidth="359.0" textAlignment="CENTER" textFill="#e91e63" />
-               </children>
-            </AnchorPane>
-      </children>
-    </AnchorPane>
-  </children>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0"
+      prefWidth="640.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.taskmanagement.LoginController">
+    <children>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="439.0" prefWidth="717.0" VBox.vgrow="ALWAYS">
+            <children>
+                <ImageView fitHeight="481.0" fitWidth="640.0">
+                    <image>
+                        <Image url="@gradient.jpg"/>
+                    </image>
+                </ImageView>
+                <AnchorPane layoutX="80.0" layoutY="51.0" prefHeight="380.0" prefWidth="480.0"
+                            style="-fx-background-color: WHITE;">
+                    <children>
+                        <Label layoutX="204.0" layoutY="63.0" prefHeight="34.0" prefWidth="70.0" text="Login"
+                               textFill="#6f6f6f">
+                            <font>
+                                <Font name="Tahoma Bold" size="23.0"/>
+                            </font>
+                        </Label>
+                        <AnchorPane layoutX="199.0" layoutY="98.0" prefHeight="3.0" prefWidth="82.0"
+                                    style="-fx-background-color: #7cb342;"/>
+                        <Button fx:id="loginButton" layoutX="157.0" layoutY="247.0" mnemonicParsing="false"
+                                onAction="#onLoginButtonClick" prefHeight="32.0" prefWidth="165.0"
+                                style="-fx-background-color: #7cb342; -fx-background-radius: 90;" text="Login"
+                                textFill="WHITE">
+                            <font>
+                                <Font name="Tahoma Bold" size="14.0"/>
+                            </font>
+                        </Button>
+                        <TextField fx:id="usernameField" layoutX="159.0" layoutY="140.0" promptText="Email"/>
+                        <PasswordField fx:id="passwordField" layoutX="158.0" layoutY="177.0" promptText="Password"/>
+                        <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="61.0" layoutY="299.0"
+                               prefHeight="18.0" prefWidth="359.0" textAlignment="CENTER" textFill="#e91e63"/>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
 </VBox>

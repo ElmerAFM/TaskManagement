@@ -1,12 +1,12 @@
-package com.example.taskmanagement;
+package com.example.taskmanagement.models;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 public class DBConnection {
-    public Connection conn;
+    private static Connection conn;
 
-    public Connection getConnection() {
+    public static Connection getConnection() {
         String url = "jdbc:postgresql:taskmanagement";
         String user = "postgres";
         String password = "password";

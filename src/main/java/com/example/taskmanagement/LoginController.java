@@ -1,5 +1,6 @@
 package com.example.taskmanagement;
 
+import com.example.taskmanagement.models.DBConnection;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -39,12 +40,13 @@ public class LoginController {
                 loginMessageLabel.setText("Login failed");
             }
         } else {
+            switchToMain(event);
             loginMessageLabel.setText("Please enter your username and password");
         }
     }
 
     protected void switchToMain(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("main.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main.fxml"));
         Parent root = fxmlLoader.load();
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         currentStage.close();
@@ -56,8 +58,7 @@ public class LoginController {
     }
 
     private boolean doLogin() {
-        DBConnection dbConnection = new DBConnection();
-        Connection connection = dbConnection.getConnection();
+        Connection connection = DBConnection.getConnection();
         String login = "Select count(1) from users where email = '" + usernameField.getText() + "' and password = '" + passwordField.getText() + "'";
         try {
             Statement statement = connection.createStatement();

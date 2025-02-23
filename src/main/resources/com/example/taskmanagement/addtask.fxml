@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
@@ -11,8 +13,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.control.Button?>
-<BorderPane fx:id="window" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: BLACK;" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controllers.Addnew">
+<BorderPane fx:id="window" prefHeight="400.0" prefWidth="600.0" style="-fx-border-color: BLACK;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskmanagement.AddTaskController">
     <top>
         <Pane prefHeight="32.0" prefWidth="600.0" BorderPane.alignment="CENTER">
             <children>
@@ -36,15 +37,16 @@
     <center>
         <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
             <children>
-                <Label layoutX="26.0" layoutY="42.0" text="Short Description" />
-                <TextField fx:id="Description" layoutX="149.0" layoutY="38.0" prefHeight="25.0" prefWidth="419.0" />
-                <Label layoutX="26.0" layoutY="128.0" text="Details" />
-                <TextArea fx:id="DetailsArea" layoutX="149.0" layoutY="79.0" prefHeight="149.0" prefWidth="421.0" wrapText="true" />
-                <DatePicker fx:id="Deadline" layoutX="148.0" layoutY="248.0" prefHeight="25.0" prefWidth="194.0" />
+                <Label layoutX="26.0" layoutY="42.0" text="Title" />
+                <TextField fx:id="titleField" layoutX="149.0" layoutY="38.0" prefHeight="25.0" prefWidth="419.0" />
+                <Label layoutX="26.0" layoutY="128.0" text="Description" />
+                <TextArea fx:id="descriptionField" layoutX="149.0" layoutY="79.0" prefHeight="149.0" prefWidth="421.0" wrapText="true" />
+                <DatePicker fx:id="duedateField" layoutX="148.0" layoutY="248.0" prefHeight="25.0" prefWidth="194.0" />
                 <Label layoutX="31.0" layoutY="252.0" text="Deadline" />
-                <ComboBox fx:id="Categories" layoutX="386.0" layoutY="248.0" prefHeight="25.0" prefWidth="183.0" promptText="Catagories" />
+                <ComboBox fx:id="priorityField" layoutX="386.0" layoutY="248.0" prefHeight="25.0" prefWidth="183.0" promptText="Priority" />
                 <Button layoutX="492.0" layoutY="319.0" onAction="#cancel" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: F2F2F2;" text="Cancel" />
                 <Button layoutX="394.0" layoutY="319.0" onAction="#ok" prefHeight="25.0" prefWidth="78.0" style="-fx-background-color: D1E4F9;" text="OK" />
+            <Label fx:id="addMessageLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="13.0" layoutY="291.0" prefHeight="18.0" prefWidth="572.0" textAlignment="CENTER" textFill="RED" />
             </children>
         </Pane>
     </center>
