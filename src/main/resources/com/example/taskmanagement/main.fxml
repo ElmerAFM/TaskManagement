@@ -1,129 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
-  All rights reserved. Use is subject to license terms.
-
-  This file is available and licensed under the following license:
-
-  Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions
-  are met:
-
-  - Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
-  - Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in
-    the documentation and/or other materials provided with the distribution.
-  - Neither the name of Oracle Corporation nor the names of its
-    contributors may be used to endorse or promote products derived
-    from this software without specific prior written permission.
-
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
-  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
-  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
-  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
-  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
-  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
-  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
--->
-
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.taskmanagement.MainController">
-  <children>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0">
-         <children>
-            <ImageView fitHeight="600.0" fitWidth="900.0" pickOnBounds="true">
-               <image>
-                  <Image url="@gradient.jpg" />
-               </image>
-            </ImageView>
-          <AnchorPane layoutX="50.0" layoutY="25.0" maxHeight="-1.0" maxWidth="-1.0" prefHeight="550.0" prefWidth="800.0" style="-fx-background-color: #212121;">
+<Pane prefHeight="636.0" prefWidth="738.0" style="-fx-background-color: WHITE;" stylesheets="@tableview.css" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.taskmanagement.MainController">
+    <children>
+        <BorderPane prefHeight="636.0" prefWidth="738.0" style="-fx-background-color: White;">
+            <left>
+                <Pane prefHeight="636.0" prefWidth="639.0" style="-fx-background-color: WHITE;" BorderPane.alignment="CENTER">
+                    <children>
+                        <Label layoutX="38.0" layoutY="39.0" text="Task Management">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Label>
+                        <Separator layoutX="39.0" layoutY="76.0" prefHeight="0.0" prefWidth="421.0" />
+                  <TableView layoutX="32.0" layoutY="101.0" prefHeight="503.0" prefWidth="582.0">
+                    <columns>
+                      <TableColumn prefWidth="31.0" text="ID" />
+                      <TableColumn prefWidth="39.0" text="Done" />
+                        <TableColumn prefWidth="324.0" text="Title" />
+                        <TableColumn minWidth="0.0" prefWidth="95.0" text="Priority" />
+                        <TableColumn minWidth="1.0" prefWidth="92.0" text="|" />
+                    </columns>
+                  </TableView>
+                  <Button fx:id="addTaskButton" layoutX="509.0" layoutY="44.0" mnemonicParsing="false" onAction="#addTask" style="-fx-background-color: #8bc34a;" styleClass="btn" text="Add Task" textFill="WHITE" />
+                    </children>
+                </Pane>
+            </left>
+            <right>
+            <AnchorPane prefHeight="636.0" prefWidth="100.0" style="-fx-background-color: #8bc34a;" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="261.0" layoutY="25.0" text="Task Management System" textFill="WHITE">
+                  <Button fx:id="signOutButton" layoutX="13.0" layoutY="588.0" mnemonicParsing="false" onAction="#signOut" style="-fx-background-color: #f44336;" styleClass="btn" text="Sign Out" textFill="WHITE">
                      <font>
-                        <Font name="Tahoma" size="24.0" />
-                     </font>
-                  </Label>
-                  <AnchorPane layoutX="261.0" layoutY="53.0" prefHeight="2.0" prefWidth="279.0" style="-fx-background-color: #7cb342;" />
-                  <Button layoutX="32.0" layoutY="21.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="25.0" style="-fx-background-color: #7cb342; -fx-background-radius: 90;" text="+" textFill="WHITE">
-                     <font>
-                        <Font size="18.0" />
+                        <Font name="System Bold" size="13.0" />
                      </font>
                   </Button>
-                  <HBox layoutX="131.0" layoutY="403.0" prefHeight="111.0" prefWidth="538.0">
-                     <children>
-                        <VBox alignment="CENTER" prefHeight="111.0" prefWidth="352.0">
-                           <children>
-                              <Label prefHeight="52.0" prefWidth="394.0" text="Make sure to follow the new instructions that the professor sent by email for the final report draft" textFill="WHITE" wrapText="true" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
-                           <children>
-                              <ChoiceBox prefWidth="150.0" />
-                           </children>
-                        </VBox>
-                        <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
-                           <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #00bcd4;" text="Update" textFill="WHITE" />
-                              <Button mnemonicParsing="false" style="-fx-background-color: #e57373;" text="Delete" textFill="WHITE" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
-                  <Button fx:id="signOutButton" layoutX="711.0" layoutY="25.0" mnemonicParsing="false" onAction="#signOut" style="-fx-background-color: transparent; -fx-background-radius: 10;" text="Sign Out" textFill="WHITE" wrapText="true">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                  </Button>
-                  <VBox layoutX="141.0" layoutY="89.0" prefHeight="268.0" prefWidth="520.0" style="-fx-background-color: #212121; -fx-border-width: 0;">
-                     <children>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="47.0" prefWidth="520.0" spacing="5.0" style="-fx-border-width: 0 0 2 0;">
-                           <children>
-                              <Label prefHeight="42.0" prefWidth="228.0" textFill="WHITE" />
-                              <Label alignment="TOP_CENTER" prefHeight="18.0" prefWidth="56.0" text="Priority" textFill="WHITE" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="555.0" spacing="5.0" style="-fx-border-color: #618833; -fx-border-width: 0 0 2 0;">
-                           <children>
-                              <CheckBox mnemonicParsing="false" textFill="WHITE" />
-                              <Label prefHeight="29.0" prefWidth="427.0" text="Do Laundry at 7 pm" textFill="WHITE" />
-                              <Label prefHeight="18.0" prefWidth="29.0" text="Low" textFill="WHITE" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="555.0" spacing="5.0" style="-fx-border-color: #618833; -fx-border-width: 0 0 2 0;">
-                           <children>
-                              <CheckBox mnemonicParsing="false" />
-                              <Label prefHeight="29.0" prefWidth="427.0" text="Finish final report draft and email to professor" textFill="WHITE" />
-                              <Label prefHeight="18.0" prefWidth="29.0" text="Low" textFill="WHITE" />
-                           </children>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="42.0" prefWidth="555.0" spacing="5.0" style="-fx-border-color: #618833; -fx-border-width: 0 0 2 0;">
-                           <children>
-                              <CheckBox mnemonicParsing="false" />
-                              <Label prefHeight="29.0" prefWidth="427.0" text="Buy groceries" textFill="WHITE" />
-                              <Label prefHeight="18.0" prefWidth="29.0" text="Low" textFill="WHITE" />
-                           </children>
-                        </HBox>
-                     </children>
-                  </VBox>
                </children>
-          </AnchorPane>
-         </children>
-      </AnchorPane>
-  </children>
-</VBox>
+            </AnchorPane>
+            </right>
+        </BorderPane>
+    </children>
+</Pane>

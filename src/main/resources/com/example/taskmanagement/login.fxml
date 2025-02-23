@@ -51,22 +51,22 @@
                   <Image url="@gradient.jpg" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="123.0" layoutY="71.0" prefHeight="340.0" prefWidth="394.0" style="-fx-background-color: #212121;">
+            <AnchorPane layoutX="80.0" layoutY="51.0" prefHeight="380.0" prefWidth="480.0" style="-fx-background-color: WHITE;">
                <children>
-                  <Label layoutX="162.0" layoutY="63.0" prefHeight="34.0" prefWidth="70.0" text="Login" textFill="WHITE">
+                  <Label layoutX="204.0" layoutY="63.0" prefHeight="34.0" prefWidth="70.0" text="Login" textFill="#6f6f6f">
                      <font>
                         <Font name="Tahoma Bold" size="23.0" />
                      </font>
                   </Label>
-                  <AnchorPane layoutX="157.0" layoutY="98.0" prefHeight="3.0" prefWidth="82.0" style="-fx-background-color: #7cb342;" />
-                  <Button fx:id="loginButton" layoutX="115.0" layoutY="247.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="32.0" prefWidth="165.0" style="-fx-background-color: #7cb342; -fx-background-radius: 90;" text="Login" textFill="WHITE">
+                  <AnchorPane layoutX="199.0" layoutY="98.0" prefHeight="3.0" prefWidth="82.0" style="-fx-background-color: #7cb342;" />
+                  <Button fx:id="loginButton" layoutX="157.0" layoutY="247.0" mnemonicParsing="false" onAction="#onLoginButtonClick" prefHeight="32.0" prefWidth="165.0" style="-fx-background-color: #7cb342; -fx-background-radius: 90;" text="Login" textFill="WHITE">
                      <font>
                         <Font name="Tahoma Bold" size="14.0" />
                      </font>
                   </Button>
-                  <TextField fx:id="usernameField" layoutX="122.0" layoutY="135.0" promptText="Email" />
-                  <PasswordField fx:id="passwordField" layoutX="121.0" layoutY="180.0" promptText="Password" />
-                  <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="19.0" layoutY="299.0" prefHeight="18.0" prefWidth="359.0" textAlignment="CENTER" textFill="#e91e63" />
+                  <TextField fx:id="usernameField" layoutX="159.0" layoutY="140.0" promptText="Email" />
+                  <PasswordField fx:id="passwordField" layoutX="158.0" layoutY="177.0" promptText="Password" />
+                  <Label fx:id="loginMessageLabel" alignment="CENTER" layoutX="61.0" layoutY="299.0" prefHeight="18.0" prefWidth="359.0" textAlignment="CENTER" textFill="#e91e63" />
                </children>
             </AnchorPane>
       </children>
