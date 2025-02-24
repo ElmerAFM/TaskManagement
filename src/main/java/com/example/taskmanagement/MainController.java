@@ -42,6 +42,7 @@ public class MainController implements Initializable {
 
     private Connection connection = null; // Database connection
     private ObservableList<Task> taskList = FXCollections.observableArrayList(); // List of tasks
+    private int userID;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -57,6 +58,8 @@ public class MainController implements Initializable {
         // Load the add task screen
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("addtask.fxml"));
         Parent root = fxmlLoader.load();
+        AddTaskController controller = fxmlLoader.getController();
+        controller.setUserID(this.userID);
         Stage stage = new Stage();
         Scene scene = new Scene(root);
         stage.setScene(scene);
@@ -186,6 +189,7 @@ public class MainController implements Initializable {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("addtask.fxml"));
         Parent root = fxmlLoader.load();
         AddTaskController controller = fxmlLoader.getController();
+        controller.setUserID(this.userID);
         controller.setUpdate(task); // Pass the task to update
         Stage stage = new Stage();
         Scene scene = new Scene(root);
@@ -229,13 +233,14 @@ public class MainController implements Initializable {
     private void refreshTaskList() throws SQLException {
         try {
             taskList.clear(); // Clear existing tasks
-            String query = "SELECT * FROM TASKS"; // Query to get tasks
+            String query = "SELECT * FROM TASKS WHERE userID = " + this.userID; // Query to get tasks
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(query);
             while (result.next()) {
                 // Add tasks to the list
                 taskList.add(new Task(
                         result.getInt("taskID"),
+                        result.getInt("userID"),
                         result.getString("title"),
                         result.getBoolean("status"),
                         result.getString("description"),
@@ -245,5 +250,10 @@ public class MainController implements Initializable {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public void setUserID(int userID) throws SQLException {
+        this.userID = userID;
+        loadData();
     }
 }

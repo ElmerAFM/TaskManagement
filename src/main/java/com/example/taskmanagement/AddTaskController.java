@@ -37,6 +37,7 @@ public class AddTaskController implements Initializable {
 
     private boolean update = false; // Flag to check if updating a task
     private int taskID; // Store task ID for updates
+    private int userID; // Store user ID for updating/creating tasks
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -76,12 +77,13 @@ public class AddTaskController implements Initializable {
                 }
             } else {
                 // Insert a new task into the database
-                String query = "INSERT INTO Tasks (title, description, priority, duedate) VALUES (?, ?, ?, ?)";
+                String query = "INSERT INTO Tasks (title, description, priority, duedate, userID) VALUES (?, ?, ?, ?, ?)";
                 try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
                     preparedStatement.setString(1, title);
                     preparedStatement.setString(2, description);
                     preparedStatement.setString(3, priority);
                     preparedStatement.setDate(4, java.sql.Date.valueOf(duedate));
+                    preparedStatement.setInt(5, this.userID);
                     preparedStatement.executeUpdate(); // Execute insert
                 } catch (SQLException e) {
                     e.printStackTrace(); // Handle any SQL errors
@@ -111,6 +113,10 @@ public class AddTaskController implements Initializable {
         // Close the current window when canceling
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         currentStage.close();
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     // Set fields for updating an existing task

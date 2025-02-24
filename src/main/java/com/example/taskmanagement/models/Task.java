@@ -8,6 +8,7 @@ import java.time.LocalDate;
 public class Task {
 
     int taskID; // Unique identifier for the task
+    int userID; // Unique identifies for the owner of the task
     String title; // Title of the task
     SimpleBooleanProperty status; // Status of the task (completed or not)
     String description; // Description of the task
@@ -15,8 +16,9 @@ public class Task {
     LocalDate duedate; // Due date of the task
 
     // Constructor to initialize a task with the provided values
-    public Task(int taskID, String name, boolean status, String description, String priority, Date duedate) {
+    public Task(int taskID, int userID, String name, boolean status, String description, String priority, Date duedate) {
         this.taskID = taskID; // Set the task ID
+        this.userID = userID; // Set the user ID
         this.title = name; // Set the task title
         this.status = new SimpleBooleanProperty(status); // Set the task status
         this.description = description; // Set the task description
@@ -34,6 +36,16 @@ public class Task {
     // Setter for task ID
     public void setTaskID(int taskID) {
         this.taskID = taskID;
+    }
+
+    // Getter for user ID
+    public int getUserID() {
+        return userID;
+    }
+
+    // Setter for user ID
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
     // Getter for task title

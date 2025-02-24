@@ -22,16 +22,16 @@ import java.sql.Statement;
 public class LoginController {
 
     @FXML
-    private Button loginButton; // Login button
-    @FXML
     private Label loginMessageLabel; // Label for login messages
     @FXML
     private TextField usernameField; // Field for entering username
     @FXML
     private PasswordField passwordField; // Field for entering password
 
+    private int userID;
+
     @FXML
-    protected void onLoginButtonClick(ActionEvent event) throws IOException {
+    protected void onLoginButtonClick(ActionEvent event) throws IOException, SQLException {
         // Check if username and password are provided
         if (!usernameField.getText().isBlank() && !passwordField.getText().isBlank()) {
             if (doLogin()) {
@@ -43,15 +43,16 @@ public class LoginController {
             }
         } else {
             // If fields are blank, display a message
-            switchToMain(event);
             loginMessageLabel.setText("Please enter your username and password");
         }
     }
 
     // Switch to the main screen after successful login
-    protected void switchToMain(ActionEvent event) throws IOException {
+    protected void switchToMain(ActionEvent event) throws IOException, SQLException {
         FXMLLoader fxmlLoader = new FXMLLoader(MainApplication.class.getResource("main.fxml"));
         Parent root = fxmlLoader.load();
+        MainController mainController = fxmlLoader.getController();
+        mainController.setUserID(this.userID);
         Stage currentStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         currentStage.close(); // Close the current login screen
         Stage stage = new Stage();
@@ -64,12 +65,15 @@ public class LoginController {
     // Perform login check against the database
     private boolean doLogin() {
         Connection connection = DBConnection.getConnection(); // Get database connection
-        String login = "Select count(1) from users where email = '" + usernameField.getText() + "' and password = '" + passwordField.getText() + "'";
+        String login = "Select count(1) as usercount, userID from users where email = '" + usernameField.getText() + "' and password = '" + passwordField.getText() + "' group by userID";
         try {
             Statement statement = connection.createStatement();
             ResultSet result = statement.executeQuery(login);
             while (result.next()) {
-                return result.getInt(1) == 1; // Return true if login is successful
+                if (result.getInt("usercount") == 1) {
+                    this.userID = result.getInt("userID");
+                    return true;// Return true if login is successful
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace(); // Handle any SQL errors
